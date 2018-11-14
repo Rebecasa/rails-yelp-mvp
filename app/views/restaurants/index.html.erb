@@ -1,5 +1,21 @@
-<h2>Restaurants</h2>
-<% @restaurants.each do |r| %>
-<h3><%=r.name%></h3>
-<p><%= "#{r.address},  #{r.phone_number}. Category :#{r.category}" %></p>
-<% end %>
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logo.png", height: 50 %>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+  </div>
+  </div>
+
+
+<div class="container">
+  <h2>Restaurants</h2>
+<%= link_to "Create a new restaurant", new_restaurant_path(@restaurant)  %>
+  <% @restaurants.each do |r| %>
+    <h3><%=link_to r.name, restaurant_path(r) %></h3>
+    <p><%= "#{r.address},  #{r.phone_number}. Category :#{r.category}" %></p>
+  <% end %>
+</div>
